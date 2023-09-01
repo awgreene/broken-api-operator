@@ -1,0 +1,13 @@
+# TODO: Investigate why contents of this catalog do not appear in the packagemanifest list
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  labels:
+    hive.openshift.io/managed: "true"
+  name: agreene-cool-catalog
+  namespace: openshift-marketplace
+spec:
+  displayName: Alex Greene's Cool Catalog
+  image: docker.io/awgreene/cool-catalog
+  publisher: agreene
+  sourceType: grpc

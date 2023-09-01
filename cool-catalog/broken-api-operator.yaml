@@ -1,0 +1,160 @@
+---
+defaultChannel: stable
+name: broken-api-operator
+schema: olm.package
+---
+image: docker.io/awgreene/broken-api-operator-bundle:v0.0.1
+name: broken-api-operator.v0.0.1
+package: broken-api-operator
+properties:
+- type: olm.gvk
+  value:
+    group: broken.awgreene.com
+    kind: Foo
+    version: v1alpha1
+- type: olm.package
+  value:
+    packageName: broken-api-operator
+    version: 0.0.1
+- type: olm.csv.metadata
+  value:
+    annotations:
+      alm-examples: |-
+        [
+          {
+            "apiVersion": "broken.awgreene.com/v1alpha1",
+            "kind": "Foo",
+            "metadata": {
+              "labels": {
+                "app.kubernetes.io/created-by": "broken-api-operator",
+                "app.kubernetes.io/instance": "foo-sample",
+                "app.kubernetes.io/managed-by": "kustomize",
+                "app.kubernetes.io/name": "foo",
+                "app.kubernetes.io/part-of": "broken-api-operator"
+              },
+              "name": "foo-sample"
+            },
+            "spec": null
+          }
+        ]
+      capabilities: Basic Install
+      createdAt: "2023-09-01T18:10:44Z"
+      operators.operatorframework.io/builder: operator-sdk-v1.31.0
+      operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
+    apiServiceDefinitions: {}
+    crdDescriptions:
+      owned:
+      - description: Foo is the Schema for the foos API
+        displayName: Foo
+        kind: Foo
+        name: foos.broken.awgreene.com
+        version: v1alpha1
+    description: This operator makes a breaking api change between versions
+    displayName: Broken API Operator
+    installModes:
+    - supported: false
+      type: OwnNamespace
+    - supported: false
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: true
+      type: AllNamespaces
+    keywords:
+    - test
+    links:
+    - name: Broken Api Operator
+      url: https://broken-api-operator.domain
+    maturity: alpha
+    provider:
+      name: Alexander Greene
+relatedImages:
+- image: docker.io/awgreene/broken-api-operator-bundle:v0.0.1
+  name: ""
+- image: docker.io/awgreene/broken-api-operator:v0.0.1
+  name: ""
+- image: gcr.io/kubebuilder/kube-rbac-proxy:v0.13.1
+  name: ""
+schema: olm.bundle
+---
+image: docker.io/awgreene/broken-api-operator-bundle:v0.0.2
+name: broken-api-operator.v0.0.2
+package: broken-api-operator
+properties:
+- type: olm.gvk
+  value:
+    group: broken.awgreene.com
+    kind: Foo
+    version: v1alpha1
+- type: olm.package
+  value:
+    packageName: broken-api-operator
+    version: 0.0.2
+- type: olm.csv.metadata
+  value:
+    annotations:
+      alm-examples: |-
+        [
+          {
+            "apiVersion": "broken.awgreene.com/v1alpha1",
+            "kind": "Foo",
+            "metadata": {
+              "labels": {
+                "app.kubernetes.io/created-by": "broken-api-operator",
+                "app.kubernetes.io/instance": "foo-sample",
+                "app.kubernetes.io/managed-by": "kustomize",
+                "app.kubernetes.io/name": "foo",
+                "app.kubernetes.io/part-of": "broken-api-operator"
+              },
+              "name": "foo-sample"
+            },
+            "spec": null
+          }
+        ]
+      capabilities: Basic Install
+      createdAt: "2023-09-01T19:48:59Z"
+      operators.operatorframework.io/builder: operator-sdk-v1.31.0
+      operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
+    apiServiceDefinitions: {}
+    crdDescriptions:
+      owned:
+      - description: Foo is the Schema for the foos API
+        displayName: Foo
+        kind: Foo
+        name: foos.broken.awgreene.com
+        version: v1alpha1
+    description: This operator makes a breaking api change between versions
+    displayName: Broken API Operator
+    installModes:
+    - supported: false
+      type: OwnNamespace
+    - supported: false
+      type: SingleNamespace
+    - supported: false
+      type: MultiNamespace
+    - supported: true
+      type: AllNamespaces
+    keywords:
+    - test
+    links:
+    - name: Broken Api Operator
+      url: https://broken-api-operator.domain
+    maturity: alpha
+    provider:
+      name: Alexander Greene
+relatedImages:
+- image: docker.io/awgreene/broken-api-operator-bundle:v0.0.2
+  name: ""
+- image: docker.io/awgreene/broken-api-operator:v0.0.2
+  name: ""
+- image: gcr.io/kubebuilder/kube-rbac-proxy:v0.13.1
+  name: ""
+schema: olm.bundle
+---
+schema: olm.channel
+package: broken-api-operator
+name: stable
+entries:
+- name: broken-api-operator.v0.0.1
+- name: broken-api-operator.v0.0.2
+  replaces: broken-api-operator.v0.0.1

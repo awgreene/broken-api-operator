@@ -1,0 +1,12 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: broken-api-operator
+  namespace: openshift-operators
+spec:
+  channel: stable
+  name: broken-api-operator
+  source: agreene-cool-catalog
+  sourceNamespace: openshift-marketplace
+  startingCSV: broken-api-operator.v0.0.1
+  installPlanApproval: Manual
