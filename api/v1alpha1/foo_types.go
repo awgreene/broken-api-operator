@@ -29,7 +29,7 @@ type FooSpec struct {
 	// Important: Run "make" to regenerate code after modifying this file
 
 	// Foo is an example field of Foo. Edit foo_types.go to remove/update
-	// +kubebuilder:validation:Enum=foo;bar
+	// +kubebuilder:validation:Enum=foo
 	Foo string `json:"foo,omitempty"`
 }
 

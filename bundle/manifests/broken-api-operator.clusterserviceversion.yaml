@@ -21,10 +21,10 @@ metadata:
         }
       ]
     capabilities: Basic Install
-    createdAt: "2023-09-01T18:10:44Z"
+    createdAt: "2023-09-01T19:48:59Z"
     operators.operatorframework.io/builder: operator-sdk-v1.31.0
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v3
-  name: broken-api-operator.v0.0.1
+  name: broken-api-operator.v0.0.2
   namespace: placeholder
 spec:
   apiservicedefinitions: {}
@@ -152,7 +152,7 @@ spec:
                 - --leader-elect
                 command:
                 - /manager
-                image: docker.io/awgreene/broken-api-operator:v0.0.1
+                image: docker.io/awgreene/broken-api-operator:v0.0.2
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -234,4 +234,4 @@ spec:
   maturity: alpha
   provider:
     name: Alexander Greene
-  version: 0.0.1
+  version: 0.0.2

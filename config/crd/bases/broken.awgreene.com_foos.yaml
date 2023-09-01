@@ -40,7 +40,6 @@ spec:
                   remove/update
                 enum:
                 - foo
-                - bar
                 type: string
             type: object
           status:
